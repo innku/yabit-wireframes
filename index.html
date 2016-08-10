@@ -10,6 +10,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
 
+    <script src="js/jquery.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,23 +54,23 @@
             <div class="panel-body">
               <div class="checkbox checkboxes">
                 <label>
-                  <input type="checkbox"> Por monto
+                  <input id="por-monto-del-plan" type="checkbox"> Por monto
                 </label>
                 <label>
-                  <input type="checkbox"> Sin límite
+                  <input id="sin-limite" type="checkbox"> Sin límite
                 </label>
               </div>
-              <div class="row">
+              <div class="row hidden" id="monto-del-plan">
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="min">Mínimo</label>
-                    <input type="password" class="form-control" id="min" placeholder="$5,000">
+                    <input class="form-control" id="min" placeholder="$5,000">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="max">Máximo</label>
-                    <input type="password" class="form-control" id="max" placeholder="$20,000">
+                    <input class="form-control" id="max" placeholder="$20,000">
                   </div>
                 </div>
               </div>
@@ -102,13 +104,13 @@
             <div class="panel-body">
               <div class="checkbox checkboxes">
                 <label>
-                  <input type="checkbox"> Por monto
+                  <input id="terminacion-por-monto" type="checkbox"> Por monto
                 </label>
                 <label>
                   <input type="checkbox"> Sin límite
                 </label>
               </div>
-              <div class="row">
+              <div class="row hidden" id="terminacion-del-plan">
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="min">Mínimo</label>
@@ -132,50 +134,52 @@
             <div class="panel-body">
               <div class="checkbox checkboxes">
                 <label>
-                  <input type="checkbox"> Obligatorio
+                  <input id="obligatorio" type="checkbox"> Obligatorio
                 </label>
                 <label>
                   <input type="checkbox"> N/A
                 </label>
               </div>
-              <i class="text-muted">Selecciona si el monto es por porcentaje y/o si tiene límites</i>
-              <br><br>
-              <div class="row">
-                <div class="col-md-5">
-                  <label>
-                    <input type="checkbox"> Por porcentaje del total
-                  </label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="min" placeholder="Mínimo">
+              <div class="hidden" id="enganche">
+                <div class="row">
+                  <div class="col-md-5">
+                    <i class="text-muted">Selecciona si el monto es por porcentaje y/o si tiene límites</i>
+                    <br><br>
+                    <label>
+                      <input id="enganche-porcentaje" type="checkbox"> Por porcentaje del total
+                    </label>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="max" placeholder="Máximo">
+                <div class="row hidden" id="por-porcentaje-campos">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="max" placeholder="Máximo">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-5">
-                  <label>
-                    <input type="checkbox"> Por monto
-                  </label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>
+                      <input id="enganche-monto" type="checkbox"> Por monto
+                    </label>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="max" placeholder="Máximo">
+                <div class="row hidden" id="por-monto-campos">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="max" placeholder="Máximo">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -186,11 +190,11 @@
             <div class="panel-heading">
               <h4 style="display: inline-block">Días permitidos de inicio</h4>
               <label class="pull-right">
-                <input type="checkbox"> Cualquiera
+                <input id="cualquiera-inicio" type="checkbox"> Cualquiera
               </label>
             </div>
             <div class="panel-body">
-              <div class="checkbox days">
+              <div class="checkbox days" id="inicio-days">
                 <label>
                   <input type="checkbox"> Domingo
                 </label>
@@ -220,11 +224,11 @@
             <div class="panel-heading">
               <h4 style="display: inline-block">Días permitidos de pago</h4>
               <label class="pull-right">
-                <input type="checkbox"> Cualquiera
+                <input id="cualquiera-pago" type="checkbox"> Cualquiera
               </label>
             </div>
             <div class="panel-body">
-              <div class="checkbox days">
+              <div class="checkbox days" id="pago-days">
                 <label>
                   <input type="checkbox"> Domingo
                 </label>
@@ -267,5 +271,45 @@
       </div>
 
     </div>
+
+    <script>
+      $(document).ready(function() {
+
+        function showFields(checkbox, fields) {
+          $(checkbox).change(function() {
+            if (this.checked) {
+              $(fields).removeClass('hidden')
+            } else {
+              $(fields).addClass('hidden')
+            }
+          })
+        }
+
+        function fillDateCheckboxes(checkbox, days) {
+          $(checkbox).change(function() {
+            if (this.checked) {
+              $(days).find('input[type="checkbox"]').each(function(){
+                $(this).attr('checked', true)
+              })
+            } else {
+              $(days).find('input[type="checkbox"]').each(function(){
+                $(this).attr('checked', false)
+              })
+            }
+          })
+        }
+
+        showFields($("#por-monto-del-plan"),$("#monto-del-plan"))
+        showFields($("#terminacion-por-monto"),$("#terminacion-del-plan"))
+        showFields($("#obligatorio"),$("#enganche"))
+        showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
+        showFields($("#enganche-monto"),$("#por-monto-campos"))
+
+        fillDateCheckboxes($("#cualquiera-inicio"), $("#inicio-days"))
+        fillDateCheckboxes($("#cualquiera-pago"), $("#pago-days"))
+
+
+      });
+    </script>
   </body>
 </html>
