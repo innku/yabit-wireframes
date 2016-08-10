@@ -11,3 +11,8 @@ body{
 .days > label {
   margin-right: 90px;
 }
+
+.save-buttons {
+  padding-top: 60px;
+  padding-bottom: 300px;
+}
