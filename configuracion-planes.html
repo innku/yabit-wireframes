@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planes | Yabit</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="configuracion-planes.html">
+            <p>Yabit</p>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Usuarios</a></li>
+            <li><a href="configuracion-planes.html">Configuración</a></li>
+            <li><a href="#">Salir</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Configuración de planes</h1>
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="well">
+            <h4>Monto del plan</h4>
+            <hr>
+            <div class="checkbox checkboxes">
+              <label>
+                <input type="checkbox"> Por monto
+              </label>
+              <label>
+                <input type="checkbox"> Sin límite
+              </label>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="min">Mínimo</label>
+                  <input type="password" class="form-control" id="min" placeholder="$5,000">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="max">Máximo</label>
+                  <input type="password" class="form-control" id="max" placeholder="$20,000">
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="well">
+            <h4>Frecuencia de pago</h4>
+            <hr>
+            <div class="checkbox checkboxes">
+              <label>
+                <input type="checkbox"> Semanal
+              </label>
+              <label>
+                <input type="checkbox"> Quincenal
+              </label>
+              <label>
+                <input type="checkbox"> Mensual
+              </label>
+            </div>
+          </div>
+
+           <div class="well">
+            <div>
+              <h4 style="display: inline-block">Terminación del plan</h4>
+              <i class="text-muted">El periodo del tiempo se define por el monto</i>
+            </div>
+            <hr>
+            <div class="checkbox checkboxes">
+              <label>
+                <input type="checkbox"> Por monto
+              </label>
+              <label>
+                <input type="checkbox"> Sin límite
+              </label>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="min">Mínimo</label>
+                  <input type="password" class="form-control" id="min" placeholder="$5,000">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="max">Máximo</label>
+                  <input type="password" class="form-control" id="max" placeholder="$10,000">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="well">
+            <h4>Enganche</h4>
+            <hr>
+            <div class="checkbox checkboxes">
+              <label>
+                <input type="checkbox"> Obligatorio
+              </label>
+              <label>
+                <input type="checkbox"> N/A
+              </label>
+            </div>
+            <i class="text-muted">Selecciona si el monto es por porcentaje y/o si tiene límites</i>
+            <br><br>
+            <div class="row">
+              <div class="col-md-5">
+                <label>
+                  <input type="checkbox"> Por porcentaje del total
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="password" class="form-control" id="max" placeholder="Máximo">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+                <label>
+                  <input type="checkbox"> Por monto
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="password" class="form-control" id="max" placeholder="Máximo">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="well">
+            <h4 style="display: inline-block">Días permitidos de inicio</h4>
+             <label class="pull-right">
+              <input type="checkbox"> Cualquiera
+            </label>
+            <hr>
+            <div class="checkbox days">
+              <label>
+                <input type="checkbox"> Domingo
+              </label>
+              <label>
+                <input type="checkbox"> Lunes
+              </label>
+              <label>
+                <input type="checkbox"> Martes
+              </label>
+                <label>
+                <input type="checkbox"> Miércoles
+              </label>
+              <label>
+                <input type="checkbox"> Jueves
+              </label>
+              <label>
+                <input type="checkbox"> Viernes
+              </label>
+              <label>
+                <input type="checkbox"> Sábado
+              </label>
+            </div>
+          </div>
+
+          <div class="well">
+            <h4 style="display: inline-block">Días permitidos de pago</h4>
+             <label class="pull-right">
+              <input type="checkbox"> Cualquiera
+            </label>
+            <hr>
+            <div class="checkbox days">
+              <label>
+                <input type="checkbox"> Domingo
+              </label>
+              <label>
+                <input type="checkbox"> Lunes
+              </label>
+              <label>
+                <input type="checkbox"> Martes
+              </label>
+                <label>
+                <input type="checkbox"> Miércoles
+              </label>
+              <label>
+                <input type="checkbox"> Jueves
+              </label>
+              <label>
+                <input type="checkbox"> Viernes
+              </label>
+              <label>
+                <input type="checkbox"> Sábado
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary btn-large btn-block">
+              Guardar
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary btn-large btn-block">
+              Cancelar
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
