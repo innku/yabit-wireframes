@@ -119,14 +119,20 @@
               <div class="row hidden" id="terminacion-del-plan">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="min">Mínimo</label>
-                    <input type="number" class="form-control" id="min" placeholder="$5,000">
+                    <label for="min-terminacion">Mínimo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="min-terminacion" aria-label="Mínimo" placeholder="20,000">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="max">Máximo</label>
-                    <input type="number" class="form-control" id="max" placeholder="$10,000">
+                    <label for="max-terminacion">Máximo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="max-terminacion" aria-label="Máximo" placeholder="20,000">
+                    </div>
                   </div>
                 </div>
               </div>
