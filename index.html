@@ -49,12 +49,12 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title">Monto del plan</h4>
+              <h4 class="panel-title">Límites para montos</h4>
             </div>
             <div class="panel-body">
               <div class="checkbox checkboxes">
                 <label>
-                  <input id="por-monto-del-plan" type="checkbox"> Por monto
+                  <input id="por-monto-del-plan" type="checkbox"> Limitar por monto
                 </label>
                 <label>
                   <input id="sin-limite" type="checkbox"> Sin límite
@@ -64,13 +64,19 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="min">Mínimo</label>
-                    <input class="form-control" id="min" placeholder="$5,000">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="20,000">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="max">Máximo</label>
-                    <input class="form-control" id="max" placeholder="$20,000">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -79,7 +85,7 @@
 
            <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title">Frecuencia de pago</h4>
+              <h4 class="panel-title">Frecuencias de pago permitidas</h4>
             </div>
             <div class="panel-body">
               <div class="checkbox checkboxes">
@@ -114,13 +120,13 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="min">Mínimo</label>
-                    <input type="password" class="form-control" id="min" placeholder="$5,000">
+                    <input type="number" class="form-control" id="min" placeholder="$5,000">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="max">Máximo</label>
-                    <input type="password" class="form-control" id="max" placeholder="$10,000">
+                    <input type="number" class="form-control" id="max" placeholder="$10,000">
                   </div>
                 </div>
               </div>
@@ -153,12 +159,18 @@
                 <div class="row hidden" id="por-porcentaje-campos">
                   <div class="col-md-3">
                     <div class="form-group">
-                      <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                      <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input type="number" min="0" max="100" class="form-control" id="min" aria-label="Mínimo" placeholder="20">
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                      <input type="password" class="form-control" id="max" placeholder="Máximo">
+                      <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="100">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -173,12 +185,18 @@
                 <div class="row hidden" id="por-monto-campos">
                   <div class="col-md-3">
                     <div class="form-group">
-                      <input type="password" class="form-control" id="min" placeholder="Mínimo">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="20,000">
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                      <input type="password" class="form-control" id="max" placeholder="Máximo">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -188,33 +206,33 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 style="display: inline-block">Días permitidos de inicio</h4>
+              <h4 style="display: inline-block">Días permitidos para iniciar un plan</h4>
               <label class="pull-right">
-                <input id="cualquiera-inicio" type="checkbox"> Cualquiera
+                <input id="cualquiera-inicio" type="checkbox" checked> Cualquiera
               </label>
             </div>
             <div class="panel-body">
               <div class="checkbox days" id="inicio-days">
                 <label>
-                  <input type="checkbox"> Domingo
+                  <input type="checkbox" checked> Lunes
                 </label>
                 <label>
-                  <input type="checkbox"> Lunes
-                </label>
-                <label>
-                  <input type="checkbox"> Martes
+                  <input type="checkbox" checked> Martes
                 </label>
                   <label>
-                  <input type="checkbox"> Miércoles
+                  <input type="checkbox" checked> Miércoles
                 </label>
                 <label>
-                  <input type="checkbox"> Jueves
+                  <input type="checkbox" checked> Jueves
                 </label>
                 <label>
-                  <input type="checkbox"> Viernes
+                  <input type="checkbox" checked> Viernes
                 </label>
                 <label>
-                  <input type="checkbox"> Sábado
+                  <input type="checkbox" checked> Sábado
+                </label>
+                <label>
+                  <input type="checkbox" checked> Domingo
                 </label>
               </div>
             </div>
@@ -222,33 +240,33 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 style="display: inline-block">Días permitidos de pago</h4>
+              <h4 style="display: inline-block">Días permitidos para recibir pagos</h4>
               <label class="pull-right">
-                <input id="cualquiera-pago" type="checkbox"> Cualquiera
+                <input id="cualquiera-pago" type="checkbox" checked> Cualquiera
               </label>
             </div>
             <div class="panel-body">
               <div class="checkbox days" id="pago-days">
                 <label>
-                  <input type="checkbox"> Domingo
+                  <input type="checkbox" checked> Lunes
                 </label>
                 <label>
-                  <input type="checkbox"> Lunes
-                </label>
-                <label>
-                  <input type="checkbox"> Martes
+                  <input type="checkbox" checked> Martes
                 </label>
                   <label>
-                  <input type="checkbox"> Miércoles
+                  <input type="checkbox" checked> Miércoles
                 </label>
                 <label>
-                  <input type="checkbox"> Jueves
+                  <input type="checkbox" checked> Jueves
                 </label>
                 <label>
-                  <input type="checkbox"> Viernes
+                  <input type="checkbox" checked> Viernes
                 </label>
                 <label>
-                  <input type="checkbox"> Sábado
+                  <input type="checkbox" checked> Sábado
+                </label>
+                <label>
+                  <input type="checkbox" checked> Domingo
                 </label>
               </div>
             </div>
@@ -261,7 +279,7 @@
               </button>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-primary btn-large btn-block">
+              <button type="button" class="btn btn-default btn-large btn-block">
               Cancelar
               </button>
             </div>
