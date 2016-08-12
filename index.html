@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Usuarios</a></li>
-            <li class="active"><a href="index.html">Configuración</a></li>
+            <li class="active"><a href="index.html">Tipos de planes</a></li>
             <li><a href="#">Salir</a></li>
           </ul>
         </div>
@@ -41,47 +41,20 @@
     </nav>
 
     <div class="container">
-      <h1>Configuración de planes</h1>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-4">
+            <h1>Nuevo tipo de plan</h1>
+          </div>
+          <div class="col-md-3">
+            <input id="plan-name" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
       <br>
 
       <div class="row">
         <div class="col-md-12">
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Límites para montos</h4>
-            </div>
-            <div class="panel-body">
-              <div class="options radio-divs">
-                <label class="radio-inline">
-                  <input type="radio" name="limites-para-monto" id="por-monto-del-plan" value="option1"> Limitar por monto
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="limites-para-monto" id="sin-limite" value="option2" checked> Sin límite
-                </label>
-              </div>
-              <div class="row hidden" id="monto-del-plan">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="min">Mínimo</label>
-                    <div class="input-group">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="max">Máximo</label>
-                    <div class="input-group">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
            <div class="panel panel-default">
             <div class="panel-heading">
@@ -96,9 +69,6 @@
                   <input type="checkbox" checked> Semanal
                 </label>
                 <label>
-                  <input type="checkbox" checked> Quincenal
-                </label>
-                <label>
                   <input type="checkbox" checked> Mensual
                 </label>
               </div>
@@ -111,13 +81,15 @@
               <i class="text-muted">La terminación por defecto es cuando se cumpla el pago del monto total</i>
             </div>
             <div class="panel-body">
-              <div class="checkbox options">
-                 <label>
-                  <input type="checkbox"> Permitir suscripciones (Planes con terminación indefinida)
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Es obligatorio
                 </label>
-                <br>
-                <label>
-                  <input id="terminacion-por-monto" type="checkbox"> Permitir fijar un número de pagos específico para terminar el plan
+                <label class="radio-inline">
+                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Es opcional
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="terminacion" id="terminacion-no-aplica" value="option5"> No permitir suscripcion
                 </label>
               </div>
               <div class="row hidden" id="terminacion-del-plan">
@@ -145,7 +117,7 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>Enganche</h4>
+              <h4>Pago inicial</h4>
             </div>
             <div class="panel-body">
               <div class="options radio-divs">
@@ -156,13 +128,13 @@
                   <input type="radio" name="enganche" id="opcional" value="option4"> Es opcional
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="no-aplica" value="option5"> No permitir enganche
+                  <input type="radio" name="enganche" id="no-aplica" value="option5"> No permitir pago inicial
                 </label>
               </div>
               <div class="hidden" id="enganche">
                 <div class="row">
                   <div class="col-md-5">
-                    <i class="text-muted">Definir si el enganche debe tener límites</i>
+                    <i class="text-muted">Definir si el pago inicial debe tener límites</i>
                     <br><br>
                     <label>
                       <input id="enganche-porcentaje" type="checkbox"> Por porcentaje del total
@@ -219,74 +191,6 @@
             </div>
           </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 style="display: inline-block">Días permitidos para iniciar un plan</h4>
-              <label class="pull-right">
-                <input id="cualquiera-inicio" type="checkbox" checked> Cualquiera
-              </label>
-            </div>
-            <div class="panel-body">
-              <div class="checkbox days" id="inicio-days">
-                <label>
-                  <input type="checkbox" checked> Lunes
-                </label>
-                <label>
-                  <input type="checkbox" checked> Martes
-                </label>
-                  <label>
-                  <input type="checkbox" checked> Miércoles
-                </label>
-                <label>
-                  <input type="checkbox" checked> Jueves
-                </label>
-                <label>
-                  <input type="checkbox" checked> Viernes
-                </label>
-                <label>
-                  <input type="checkbox" checked> Sábado
-                </label>
-                <label>
-                  <input type="checkbox" checked> Domingo
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 style="display: inline-block">Días permitidos para recibir pagos</h4>
-              <label class="pull-right">
-                <input id="cualquiera-pago" type="checkbox" checked> Cualquiera
-              </label>
-            </div>
-            <div class="panel-body">
-              <div class="checkbox days" id="pago-days">
-                <label>
-                  <input type="checkbox" checked> Lunes
-                </label>
-                <label>
-                  <input type="checkbox" checked> Martes
-                </label>
-                  <label>
-                  <input type="checkbox" checked> Miércoles
-                </label>
-                <label>
-                  <input type="checkbox" checked> Jueves
-                </label>
-                <label>
-                  <input type="checkbox" checked> Viernes
-                </label>
-                <label>
-                  <input type="checkbox" checked> Sábado
-                </label>
-                <label>
-                  <input type="checkbox" checked> Domingo
-                </label>
-              </div>
-            </div>
-          </div>
-
           <div class="row save-buttons">
             <div class="col-md-3 col-md-offset-3">
               <button type="button" class="btn btn-primary btn-large btn-block">
@@ -331,29 +235,13 @@
           })
         }
 
-        function fillDateCheckboxes(checkbox, days) {
-          $(checkbox).change(function() {
-            if (this.checked) {
-              $(days).find('input[type="checkbox"]').each(function(){
-                $(this).attr('checked', true)
-              })
-            } else {
-              $(days).find('input[type="checkbox"]').each(function(){
-                $(this).attr('checked', false)
-              })
-            }
-          })
-        }
-
         showRadioFields($("#por-monto-del-plan"),$("#sin-limite"),$("#monto-del-plan"))
-        showFields($("#terminacion-por-monto"),$("#terminacion-del-plan"))
+        showRadioFields($("#terminacion-obligatorio"), $("#terminacion-no-aplica"),$("#terminacion-del-plan"))
+        showRadioFields($("#terminacion-opcional"), $("#terminacion-no-aplica"),$("#terminacion-del-plan"))
         showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche"))
         showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
         showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
         showFields($("#enganche-monto"),$("#por-monto-campos"))
-
-        fillDateCheckboxes($("#cualquiera-inicio"), $("#inicio-days"))
-        fillDateCheckboxes($("#cualquiera-pago"), $("#pago-days"))
 
 
       });

@@ -20,3 +20,8 @@ body{
 .radio-divs {
   margin-bottom: 10px;
 }
+
+#plan-name {
+  margin-top: 25px;
+  margin-left: -50px;
+}
