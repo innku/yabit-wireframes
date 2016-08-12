@@ -59,6 +59,53 @@
 
            <div class="panel panel-default">
             <div class="panel-heading">
+              <h4 class="panel-title">Monto</h4>
+            </div>
+            <div class="panel-body">
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="por-monto-del-plan" value="option1"> Monto fijo
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="monto-por-limites" value="option2"> Monto con límites
+                </label>
+              </div>
+              <div class="row hidden" id="monto-fijo">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="fijo">Monto fijo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="fijo" aria-label="Mínimo" placeholder="$10,000">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row hidden" id="monto-con-rangos">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="min">Mínimo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="max">Máximo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="panel panel-default">
+            <div class="panel-heading">
               <h4 class="panel-title">Frecuencias de pago permitidas</h4>
             </div>
             <div class="panel-body">
@@ -216,6 +263,8 @@
           })
         }
 
+        showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"))
+        showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"))
         showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche"))
         showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
         showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
