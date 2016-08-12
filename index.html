@@ -54,10 +54,10 @@
             <div class="panel-body">
               <div class="options radio-divs">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="por-monto-del-plan" value="option1"> Limitar por monto
+                  <input type="radio" name="limites-para-monto" id="por-monto-del-plan" value="option1"> Limitar por monto
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="sin-limite" value="option2" checked> Sin límite
+                  <input type="radio" name="limites-para-monto" id="sin-limite" value="option2" checked> Sin límite
                 </label>
               </div>
               <div class="row hidden" id="monto-del-plan">
@@ -115,6 +115,7 @@
                  <label>
                   <input type="checkbox"> Permitir suscripciones (Planes con terminación indefinida)
                 </label>
+                <br>
                 <label>
                   <input id="terminacion-por-monto" type="checkbox"> Permitir fijar un número de pagos específico para terminar el plan
                 </label>
@@ -149,13 +150,13 @@
             <div class="panel-body">
               <div class="options radio-divs">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="obligatorio" value="option3"> Es obligatorio
+                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Es obligatorio
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="opcional" value="option4"> Es opcional
+                  <input type="radio" name="enganche" id="opcional" value="option4"> Es opcional
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="no-aplica" value="option5"> No permitir enganche
+                  <input type="radio" name="enganche" id="no-aplica" value="option5"> No permitir enganche
                 </label>
               </div>
               <div class="hidden" id="enganche">
