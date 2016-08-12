@@ -106,38 +106,50 @@
 
            <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title">Frecuencias de pago permitidas</h4>
+              <h4 class="panel-title">Frecuencia de pago</h4>
             </div>
             <div class="panel-body">
-              <div class="checkbox options">
-                <label>
-                  <input type="checkbox" checked> Diario
-                </label>
-                <label>
-                  <input type="checkbox" checked> Semanal
-                </label>
-                <label>
-                  <input type="checkbox" checked> Mensual
-                </label>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <div class="frecuency">
+                      Cada   <input type="number" class="form-control input-sm">    días
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <div class="frecuency">
+                      Cada   <input type="number" class="form-control input-sm">    semanas
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <div class="frecuency">
+                      Cada   <input type="number" class="form-control input-sm">    meses
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
            <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title" style="display: inline-block">Suscripción</h4>
-              <i class="text-muted">Plan de pagos constantes, sin terminación definida.</i>
+              <h4 class="panel-title" style="display: inline-block">Suscripción o plazo</h4>
             </div>
             <div class="panel-body">
               <div class="options radio-divs">
                 <label class="radio-inline">
-                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Es obligatorio
+                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Plazo: Que se cumple al cubrir el monto
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Es opcional
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="terminacion" id="terminacion-no-aplica" value="option5"> No permitir suscripcion
+                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Suscripción: Pago constante por el monto total
                 </label>
               </div>
             </div>
@@ -150,15 +162,55 @@
             <div class="panel-body">
               <div class="options radio-divs">
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Es obligatorio
+                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Fijo
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="opcional" value="option4"> Es opcional
+                  <input type="radio" name="enganche" id="opcional" value="option4"> Rango
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="no-aplica" value="option5"> No permitir pago inicial
+                  <input type="radio" name="enganche" id="no-aplica" value="option5"> Sin pago inicial
                 </label>
               </div>
+              <div class="hidden" id="enganche-fijo">
+                <div class="row">
+                  <div class="col-md-5">
+                    <i class="text-muted">Definir si el pago inicial debe tener límites</i>
+                    <br><br>
+                    <label>
+                      <input id="enganche-porcentaje-fijo" type="checkbox"> Por porcentaje del total
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-porcentaje-campo-fijo">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="12">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>
+                      <input id="enganche-monto-fijo" type="checkbox"> Por monto
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-monto-campo-fijo">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="10,000">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="hidden" id="enganche">
                 <div class="row">
                   <div class="col-md-5">
@@ -265,8 +317,16 @@
 
         showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"))
         showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"))
-        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche"))
+
+        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche-fijo"))
+        showRadioFields($("#obligatorio"),$("#opcional"),$("#enganche-fijo"))
+
         showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
+        showRadioFields($("#opcional"),$("#obligatorio"),$("#enganche"))
+
+
+        showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"))
+        showFields($("#enganche-monto-fijo"),$("#por-monto-campo-fijo"))
         showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
         showFields($("#enganche-monto"),$("#por-monto-campos"))
 
