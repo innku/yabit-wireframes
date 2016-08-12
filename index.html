@@ -52,12 +52,12 @@
               <h4 class="panel-title">Límites para montos</h4>
             </div>
             <div class="panel-body">
-              <div class="checkbox checkboxes">
-                <label>
-                  <input id="por-monto-del-plan" type="checkbox"> Limitar por monto
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="por-monto-del-plan" value="option1"> Limitar por monto
                 </label>
-                <label>
-                  <input id="sin-limite" type="checkbox"> Sin límite
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="sin-limite" value="option2"> Sin límite
                 </label>
               </div>
               <div class="row hidden" id="monto-del-plan">
@@ -88,7 +88,10 @@
               <h4 class="panel-title">Frecuencias de pago permitidas</h4>
             </div>
             <div class="panel-body">
-              <div class="checkbox checkboxes">
+              <div class="checkbox options">
+                <label>
+                  <input type="checkbox"> Diario
+                </label>
                 <label>
                   <input type="checkbox"> Semanal
                 </label>
@@ -105,15 +108,15 @@
            <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title" style="display: inline-block">Terminación del plan</h4>
-              <i class="text-muted">El periodo del tiempo se define por el monto</i>
+              <i class="text-muted">En caso de que sea por número de pagos la terminación será cuando se termine de pagar el monto</i>
             </div>
             <div class="panel-body">
-              <div class="checkbox checkboxes">
+              <div class="checkbox options">
                 <label>
-                  <input id="terminacion-por-monto" type="checkbox"> Por monto
+                  <input id="terminacion-por-monto" type="checkbox"> Número de pagos
                 </label>
                 <label>
-                  <input type="checkbox"> Sin límite
+                  <input type="checkbox"> Recurrente
                 </label>
               </div>
               <div class="row hidden" id="terminacion-del-plan">
@@ -144,12 +147,15 @@
               <h4>Enganche</h4>
             </div>
             <div class="panel-body">
-              <div class="checkbox checkboxes">
-                <label>
-                  <input id="obligatorio" type="checkbox"> Obligatorio
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="obligatorio" value="option3"> Obligatorio
                 </label>
-                <label>
-                  <input type="checkbox"> N/A
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="opcional" value="option4"> Opcional
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="no-aplica" value="option5"> N/A
                 </label>
               </div>
               <div class="hidden" id="enganche">
@@ -309,6 +315,19 @@
           })
         }
 
+        function showRadioFields(show, hide, fields) {
+          $(show).change(function() {
+            if (this.checked) {
+              $(fields).removeClass('hidden')
+            }
+          })
+          $(hide).change(function() {
+            if (this.checked) {
+              $(fields).addClass('hidden')
+            }
+          })
+        }
+
         function fillDateCheckboxes(checkbox, days) {
           $(checkbox).change(function() {
             if (this.checked) {
@@ -323,9 +342,10 @@
           })
         }
 
-        showFields($("#por-monto-del-plan"),$("#monto-del-plan"))
+        showRadioFields($("#por-monto-del-plan"),$("#sin-limite"),$("#monto-del-plan"))
         showFields($("#terminacion-por-monto"),$("#terminacion-del-plan"))
-        showFields($("#obligatorio"),$("#enganche"))
+        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche"))
+        showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
         showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
         showFields($("#enganche-monto"),$("#por-monto-campos"))
 

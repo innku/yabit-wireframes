@@ -4,7 +4,7 @@ body{
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.checkboxes > label {
+.options > label {
   margin-right: 40px;
 }
 
@@ -15,4 +15,8 @@ body{
 .save-buttons {
   padding-top: 60px;
   padding-bottom: 300px;
+}
+
+.radio-divs {
+  margin-bottom: 10px;
 }
