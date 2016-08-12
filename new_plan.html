@@ -92,34 +92,6 @@
                   <input type="radio" name="terminacion" id="terminacion-no-aplica" value="option5"> No permitir suscripcion
                 </label>
               </div>
-              <div class="hidden" id="terminacion-del-plan">
-                <div class="row">
-                  <div class="col-md-5">
-                    <i class="text-muted">Definir límites del monto para las suscripciones</i>
-                    <br><br>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label for="min-terminacion">Mínimo</label>
-                      <div class="input-group">
-                        <span class="input-group-addon">#</span>
-                        <input type="number" min="0" class="form-control" id="min-terminacion" aria-label="Mínimo" placeholder="Sin min.">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label for="max-terminacion">Máximo</label>
-                      <div class="input-group">
-                        <span class="input-group-addon">#</span>
-                        <input type="number" min="0" class="form-control" id="max-terminacion" aria-label="Máximo" placeholder="Sin max.">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -243,9 +215,6 @@
           })
         }
 
-        showRadioFields($("#por-monto-del-plan"),$("#sin-limite"),$("#monto-del-plan"))
-        showRadioFields($("#terminacion-obligatorio"), $("#terminacion-no-aplica"),$("#terminacion-del-plan"))
-        showRadioFields($("#terminacion-opcional"), $("#terminacion-no-aplica"),$("#terminacion-del-plan"))
         showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche"))
         showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
         showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
