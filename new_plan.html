@@ -46,7 +46,7 @@
           <div class="col-md-3">
             <h1>Tipo de plan:</h1>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <input id="plan-name" class="input-lg form-control" type="text" placeholder="Nombre del tipo de plan">
           </div>
         </div>
@@ -92,22 +92,30 @@
                   <input type="radio" name="terminacion" id="terminacion-no-aplica" value="option5"> No permitir suscripcion
                 </label>
               </div>
-              <div class="row hidden" id="terminacion-del-plan">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="min-terminacion">Mínimo</label>
-                    <div class="input-group">
-                      <span class="input-group-addon">#</span>
-                      <input type="number" min="0" class="form-control" id="min-terminacion" aria-label="Mínimo" placeholder="Sin min.">
-                    </div>
+              <div class="hidden" id="terminacion-del-plan">
+                <div class="row">
+                  <div class="col-md-5">
+                    <i class="text-muted">Definir límites del monto para las suscripciones</i>
+                    <br><br>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="max-terminacion">Máximo</label>
-                    <div class="input-group">
-                      <span class="input-group-addon">#</span>
-                      <input type="number" min="0" class="form-control" id="max-terminacion" aria-label="Máximo" placeholder="Sin max.">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="min-terminacion">Mínimo</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">#</span>
+                        <input type="number" min="0" class="form-control" id="min-terminacion" aria-label="Mínimo" placeholder="Sin min.">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="max-terminacion">Máximo</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">#</span>
+                        <input type="number" min="0" class="form-control" id="max-terminacion" aria-label="Máximo" placeholder="Sin max.">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -193,14 +201,14 @@
 
           <div class="row save-buttons">
             <div class="col-md-3 col-md-offset-3">
-              <button type="button" class="btn btn-primary btn-large btn-block">
+              <a href="index.html" type="button" class="btn btn-primary btn-large btn-block">
               Guardar
-              </button>
+              </a>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-default btn-large btn-block">
+              <a href="index.html" type="button" class="btn btn-default btn-large btn-block">
               Cancelar
-              </button>
+              </a>
             </div>
           </div>
 
