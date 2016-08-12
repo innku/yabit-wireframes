@@ -57,7 +57,7 @@
                   <input type="radio" name="inlineRadioOptions" id="por-monto-del-plan" value="option1"> Limitar por monto
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="sin-limite" value="option2"> Sin límite
+                  <input type="radio" name="inlineRadioOptions" id="sin-limite" value="option2" checked> Sin límite
                 </label>
               </div>
               <div class="row hidden" id="monto-del-plan">
@@ -144,7 +144,8 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>Enganche</h4>
+              <h4 style="display: inline-block">Enganche</h4>
+              <i class="text-muted">Es obligatorio / Es opcional / No permitir enganche</i>
             </div>
             <div class="panel-body">
               <div class="options radio-divs">
@@ -161,7 +162,7 @@
               <div class="hidden" id="enganche">
                 <div class="row">
                   <div class="col-md-5">
-                    <i class="text-muted">Selecciona si el monto es por porcentaje y/o si tiene límites</i>
+                    <i class="text-muted">Definir si el enganche debe tener límites</i>
                     <br><br>
                     <label>
                       <input id="enganche-porcentaje" type="checkbox"> Por porcentaje del total
