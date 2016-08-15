@@ -112,22 +112,32 @@
               <h4 class="panel-title">Frecuencia de pago</h4>
             </div>
             <div class="panel-body">
-              <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <div class="frecuency">
-                      Cada   
-                      <div class="input-group frecuency-input">
-                        <span class="input-group-addon">#</span>
-                        <input type="number" class="form-control frecuency-number">
+              <div class="frecuencies">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="frecuency">
+                        Cada   
+                        <div class="input-group frecuency-input">
+                          <span class="input-group-addon">#</span>
+                          <input type="number" class="form-control frecuency-number">
+                        </div>
+                        <select class="frecuency-select form-control">
+                          <option>días</option>
+                          <option>semanas</option>
+                          <option>meses</option>
+                        </select>
                       </div>
-                      <select class="frecuency-select form-control">
-                        <option>días</option>
-                        <option>semanas</option>
-                        <option>meses</option>
-                      </select>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-1">
+                  <button type="button" id="add-new-frecuency" class="btn btn-link">Añadir opción</button>
+                </div>
+                <div class="col-md-1">
+                  <button type='button' class='hidden erase-new-frecuency btn btn-link'>Eliminar</button>
                 </div>
               </div>
             </div>
@@ -296,9 +306,9 @@
         function showFields(checkbox, fields) {
           $(checkbox).change(function() {
             if (this.checked) {
-              $(fields).removeClass('hidden')
+              $(fields).removeClass('hidden');
             } else {
-              $(fields).addClass('hidden')
+              $(fields).addClass('hidden');
             }
           })
         }
@@ -306,42 +316,67 @@
         function showRadioFields(show, hide, fields) {
           $(show).change(function() {
             if (this.checked) {
-              $(fields).removeClass('hidden')
+              $(fields).removeClass('hidden');
             }
           })
           $(hide).change(function() {
             if (this.checked) {
-              $(fields).addClass('hidden')
+              $(fields).addClass('hidden');
             }
           })
         }
 
         function hideField(radio, field) {
           $(radio).change(function() {
-            $(field).addClass('hidden')
+            $(field).addClass('hidden');
           })
         }
 
-        showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"))
-        showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"))
-        hideField($("#cualquier-monto"), $("#monto-fijo"))
-        hideField($("#cualquier-monto"), $("#monto-con-rangos"))
+        function addFrecuency() {
+          newFrecuency = "<div class='row'><div class='col-md-3'><div class='form-group'><div class='frecuency'>Cada   <div class='input-group frecuency-input'><span class='input-group-addon'>#</span><input type='number' class='form-control frecuency-number'></div><select class='frecuency-select form-control'><option>días</option><option>semanas</option><option>meses</option></select></div></div></div></div>"
+          $(".frecuencies").append(newFrecuency);
+        }
 
-        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#fijo-rango-radios"))
+        function eraseFrecuency() {
+          $(".frecuencies").children().last().remove();
+        }
 
-        showRadioFields($("#opcional"),$("#no-aplica"),$("#fijo-rango-radios"))
+        function checkNumberOfOptions() {
+          if ($(".frecuency").length === 1) {
+            $(".erase-new-frecuency").addClass('hidden');
+          }
+        }
 
-        showRadioFields($("#fijo"),$("#no-aplica"),$("#enganche-fijo"))
-        showRadioFields($("#fijo"),$("#rango"),$("#enganche-fijo"))
+        $("#add-new-frecuency").click(function() {
+          addFrecuency();
+          $(".erase-new-frecuency").removeClass('hidden');
+        });
 
-        showRadioFields($("#rango"),$("#no-aplica"),$("#enganche"))
-        showRadioFields($("#rango"),$("#fijo"),$("#enganche"))
+        $(".erase-new-frecuency").click(function() {
+          eraseFrecuency();
+          checkNumberOfOptions();
+        });
+
+        showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"));
+        showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"));
+        hideField($("#cualquier-monto"), $("#monto-fijo"));
+        hideField($("#cualquier-monto"), $("#monto-con-rangos"));
+
+        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#fijo-rango-radios"));
+
+        showRadioFields($("#opcional"),$("#no-aplica"),$("#fijo-rango-radios"));
+
+        showRadioFields($("#fijo"),$("#no-aplica"),$("#enganche-fijo"));
+        showRadioFields($("#fijo"),$("#rango"),$("#enganche-fijo"));
+
+        showRadioFields($("#rango"),$("#no-aplica"),$("#enganche"));
+        showRadioFields($("#rango"),$("#fijo"),$("#enganche"));
 
 
-        showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"))
-        showFields($("#enganche-monto-fijo"),$("#por-monto-campo-fijo"))
-        showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
-        showFields($("#enganche-monto"),$("#por-monto-campos"))
+        showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"));
+        showFields($("#enganche-monto-fijo"),$("#por-monto-campo-fijo"));
+        showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"));
+        showFields($("#enganche-monto"),$("#por-monto-campos"));
 
 
       });

@@ -46,10 +46,11 @@ body{
 
 .frecuency-select {
   height: 28px;
+  width: 50%;
 }
 
 .frecuency-input {
-  width: 70%;
+  width: 50%;
   height: 28px;
   padding: 0px 10px;
 }
