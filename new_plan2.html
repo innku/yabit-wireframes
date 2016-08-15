@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planes | Yabit</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
+
+    <script src="js/jquery.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <p>Yabit</p>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Ventas de planes</a></li>
+            <li class="active"><a href="index.html">Planes</a></li>
+            <li><a href="users.html">Usuarios</a></li>
+            <li><a href="#">Salir</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-1">
+            <h1>Plan:</h1>
+          </div>
+          <div class="col-md-5">
+            <input id="plan-name" class="input-lg form-control" type="text" placeholder="Nombre del plan">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+
+           <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Monto</h4>
+            </div>
+            <div class="panel-body">
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="por-monto-del-plan" value="option1"> Monto fijo
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="monto-por-limites" value="option2"> Monto con límites
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="cualquier-monto" value="option1"> Cualquier monto
+                </label>
+              </div>
+              <div class="row hidden" id="monto-fijo">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="monto-fijo">Monto fijo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="monto-fijo" aria-label="Mínimo" placeholder="$10,000">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row hidden" id="monto-con-rangos">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="min">Mínimo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin mínimo">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="max">Máximo</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin máximo">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Frecuencia de pago</h4>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="checkbox checkboxes">
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Diario
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Semanal
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Cada 2 semanas
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Mensual
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Bimestral
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Trimestral
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Semestral
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox"> Anual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title" style="display: inline-block">Suscripción o Plazo</h4>
+            </div>
+            <div class="panel-body">
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Plazo: Que se cumple al cubrir el monto
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Suscripción: Pago constante por el monto total
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Pago inicial</h4>
+            </div>
+            <div class="panel-body">
+              <div class="options radio-divs">
+                <label class="radio-inline">
+                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Obligatorio
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="enganche" id="opcional" value="option4"> Opcional
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="enganche" id="no-aplica" value="option5"> Sin pago inicial
+                </label>
+              </div>
+              <div class="hidden" id="fijo-rango-radios">
+                <label class="radio-inline">
+                  <input type="radio" name="fijo-rango" id="fijo" value="option3"> Fijo
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="fijo-rango" id="rango" value="option4"> Rango
+                </label>
+                <br><br>
+              </div>
+              <div class="hidden" id="enganche-fijo">
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>
+                      <input id="enganche-porcentaje-fijo" type="checkbox"> Por porcentaje del total
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-porcentaje-campo-fijo">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="12">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>
+                      <input id="enganche-monto-fijo" type="checkbox"> Por monto
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-monto-campo-fijo">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="10,000">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden" id="enganche">
+                <div class="row">
+                  <div class="col-md-5">
+                    <i class="text-muted">Definir si el pago inicial debe tener límites</i>
+                    <br><br>
+                    <label>
+                      <input id="enganche-porcentaje" type="checkbox"> Por porcentaje del total
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-porcentaje-campos">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">Min</span>
+                        <input type="number" min="0" max="100" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                        <span class="input-group-addon">%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">Max</span>
+                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                        <span class="input-group-addon">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>
+                      <input id="enganche-monto" type="checkbox"> Por monto
+                    </label>
+                  </div>
+                </div>
+                <div class="row hidden" id="por-monto-campos">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">Min $</span>
+                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">Max $</span>
+                        <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row save-buttons">
+            <div class="col-md-3 col-md-offset-3">
+              <a href="index.html" type="button" class="btn btn-primary btn-large btn-block">
+              Guardar
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a href="index.html" type="button" class="btn btn-default btn-large btn-block">
+              Cancelar
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      $(document).ready(function() {
+
+        function showFields(checkbox, fields) {
+          $(checkbox).change(function() {
+            if (this.checked) {
+              $(fields).removeClass('hidden')
+            } else {
+              $(fields).addClass('hidden')
+            }
+          })
+        }
+
+        function showRadioFields(show, hide, fields) {
+          $(show).change(function() {
+            if (this.checked) {
+              $(fields).removeClass('hidden')
+            }
+          })
+          $(hide).change(function() {
+            if (this.checked) {
+              $(fields).addClass('hidden')
+            }
+          })
+        }
+
+        function hideField(radio, field) {
+          $(radio).change(function() {
+            $(field).addClass('hidden')
+          })
+        }
+
+        showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"))
+        showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"))
+        hideField($("#cualquier-monto"), $("#monto-fijo"))
+        hideField($("#cualquier-monto"), $("#monto-con-rangos"))
+
+        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#fijo-rango-radios"))
+
+        showRadioFields($("#opcional"),$("#no-aplica"),$("#fijo-rango-radios"))
+
+        showRadioFields($("#fijo"),$("#no-aplica"),$("#enganche-fijo"))
+        showRadioFields($("#fijo"),$("#rango"),$("#enganche-fijo"))
+
+        showRadioFields($("#rango"),$("#no-aplica"),$("#enganche"))
+        showRadioFields($("#rango"),$("#fijo"),$("#enganche"))
+
+
+        showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"))
+        showFields($("#enganche-monto-fijo"),$("#por-monto-campo-fijo"))
+        showFields($("#enganche-porcentaje"),$("#por-porcentaje-campos"))
+        showFields($("#enganche-monto"),$("#por-monto-campos"))
+
+
+      });
+    </script>
+  </body>
+</html>
