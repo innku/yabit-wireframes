@@ -62,3 +62,8 @@ body{
 #fijo-rango-radios, #enganche, #enganche-fijo {
   margin-left: 20px;
 }
+
+.my-defined-options {
+  margin-top: 10px;
+  margin-left: 30px;
+}

@@ -112,32 +112,72 @@
               <h4 class="panel-title">Frecuencia de pago</h4>
             </div>
             <div class="panel-body">
-              <div class="frecuencies">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <div class="frecuency">
-                        Cada   
-                        <div class="input-group frecuency-input">
-                          <span class="input-group-addon">#</span>
-                          <input type="number" class="form-control frecuency-number">
+              <div class="options">
+                <label class="radio-inline">
+                  <input type="radio" name="frecuencia-radio" id="opciones-definidas" checked> Opciones definidas
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="frecuencia-radio" id="100-flexible"> 100% Flexible
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="frecuencia-radio" id="mis-opciones"> Mis propias opciones
+                </label>
+                <br><br>
+              </div>
+              <div class="checkbox checkboxes">
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Diario
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Semanal
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Cada 2 semanas
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Mensual
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Bimestral
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Trimestral
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Semestral
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Anual
+                </label>
+              </div>
+              <div class="hidden my-defined-options">
+                <div class="frecuencies">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <div class="frecuency">
+                          Cada   
+                          <div class="input-group frecuency-input">
+                            <span class="input-group-addon">#</span>
+                            <input type="number" class="form-control frecuency-number">
+                          </div>
+                          <select class="frecuency-select form-control">
+                            <option>días</option>
+                            <option>semanas</option>
+                            <option>meses</option>
+                          </select>
                         </div>
-                        <select class="frecuency-select form-control">
-                          <option>días</option>
-                          <option>semanas</option>
-                          <option>meses</option>
-                        </select>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-1">
-                  <button type="button" id="add-new-frecuency" class="btn btn-link">Añadir opción</button>
-                </div>
-                <div class="col-md-1">
-                  <button type='button' class='hidden erase-new-frecuency btn btn-link'>Eliminar</button>
+                <div class="row">
+                  <div class="col-md-1">
+                    <button type="button" id="add-new-frecuency" class="btn btn-link">Añadir opción</button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type='button' class='hidden erase-new-frecuency btn btn-link'>Eliminar</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -361,6 +401,15 @@
         showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"));
         hideField($("#cualquier-monto"), $("#monto-fijo"));
         hideField($("#cualquier-monto"), $("#monto-con-rangos"));
+
+        showRadioFields($('#opciones-definidas'),$(".frecuencies"),$(".checkboxes"))
+
+        showRadioFields($('#mis-opciones'),$("#opciones-definidas"),$(".my-defined-options"))
+        showRadioFields($('#mis-opciones'),$("#100-flexible"),$(".my-defined-options"))
+
+        hideField($("#100-flexible"), $(".my-defined-options"));
+        hideField($("#100-flexible"), $(".checkboxes"));
+        hideField($("#mis-opciones"), $(".checkboxes"));
 
         showRadioFields($("#obligatorio"),$("#no-aplica"),$("#fijo-rango-radios"));
 
