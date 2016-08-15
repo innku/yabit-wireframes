@@ -87,7 +87,7 @@
                     <label for="min">Mínimo</label>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                      <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Mínimo">
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
                     <label for="max">Máximo</label>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                      <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Máximo">
                     </div>
                   </div>
                 </div>
@@ -113,25 +113,16 @@
                 <div class="col-md-2">
                   <div class="form-group">
                     <div class="frecuency">
-                      Cada   <input type="number" class="form-control input-sm">    días
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <div class="frecuency">
-                      Cada   <input type="number" class="form-control input-sm">    semanas
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <div class="frecuency">
-                      Cada   <input type="number" class="form-control input-sm">    meses
+                      Cada   
+                      <div class="input-group frecuency-input">
+                        <span class="input-group-addon">#</span>
+                        <input type="number" class="form-control frecuency-number">
+                      </div>
+                      <select class="frecuency-select form-control">
+                        <option>días</option>
+                        <option>semanas</option>
+                        <option>meses</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -141,7 +132,7 @@
 
            <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title" style="display: inline-block">Suscripción o plazo</h4>
+              <h4 class="panel-title" style="display: inline-block">Suscripción o Plazo</h4>
             </div>
             <div class="panel-body">
               <div class="options radio-divs">
@@ -174,7 +165,6 @@
               <div class="hidden" id="enganche-fijo">
                 <div class="row">
                   <div class="col-md-5">
-                    <i class="text-muted">Definir si el pago inicial debe tener límites</i>
                     <br><br>
                     <label>
                       <input id="enganche-porcentaje-fijo" type="checkbox"> Por porcentaje del total

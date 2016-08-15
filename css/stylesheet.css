@@ -26,6 +26,7 @@ body{
 }
 
 .input-sm {
+  width: 60px;
   margin-left: 10px;
   height: 23px;
   padding: 5px 10px;
@@ -37,4 +38,18 @@ body{
 
 .frecuency {
   display: -webkit-inline-box;
+}
+
+.frecuency-select {
+  height: 28px;
+}
+
+.frecuency-input {
+  width: 70%;
+  height: 28px;
+  padding: 0px 10px;
+}
+
+.frecuency-number {
+  height: 28px;
 }
