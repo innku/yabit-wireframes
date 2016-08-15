@@ -53,3 +53,7 @@ body{
 .frecuency-number {
   height: 28px;
 }
+
+#fijo-rango-radios, #enganche, #enganche-fijo {
+  margin-left: 20px;
+}

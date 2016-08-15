@@ -69,14 +69,17 @@
                 <label class="radio-inline">
                   <input type="radio" name="limites-para-monto" id="monto-por-limites" value="option2"> Monto con límites
                 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="limites-para-monto" id="cualquier-monto" value="option1"> Cualquier monto
+                </label>
               </div>
               <div class="row hidden" id="monto-fijo">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="fijo">Monto fijo</label>
+                    <label for="monto-fijo">Monto fijo</label>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" min="0" class="form-control" id="fijo" aria-label="Mínimo" placeholder="$10,000">
+                      <input type="number" min="0" class="form-control" id="monto-fijo" aria-label="Mínimo" placeholder="$10,000">
                     </div>
                   </div>
                 </div>
@@ -153,19 +156,27 @@
             <div class="panel-body">
               <div class="options radio-divs">
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Fijo
+                  <input type="radio" name="enganche" id="obligatorio" value="option3"> Obligatorio
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="enganche" id="opcional" value="option4"> Rango
+                  <input type="radio" name="enganche" id="opcional" value="option4"> Opcional
                 </label>
                 <label class="radio-inline">
                   <input type="radio" name="enganche" id="no-aplica" value="option5"> Sin pago inicial
                 </label>
               </div>
+              <div class="hidden" id="fijo-rango-radios">
+                <label class="radio-inline">
+                  <input type="radio" name="fijo-rango" id="fijo" value="option3"> Fijo
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="fijo-rango" id="rango" value="option4"> Rango
+                </label>
+                <br><br>
+              </div>
               <div class="hidden" id="enganche-fijo">
                 <div class="row">
                   <div class="col-md-5">
-                    <br><br>
                     <label>
                       <input id="enganche-porcentaje-fijo" type="checkbox"> Por porcentaje del total
                     </label>
@@ -305,14 +316,26 @@
           })
         }
 
+        function hideField(radio, field) {
+          $(radio).change(function() {
+            $(field).addClass('hidden')
+          })
+        }
+
         showRadioFields($("#por-monto-del-plan"),$("#monto-por-limites"),$("#monto-fijo"))
         showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"))
+        hideField($("#cualquier-monto"), $("#monto-fijo"))
+        hideField($("#cualquier-monto"), $("#monto-con-rangos"))
 
-        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#enganche-fijo"))
-        showRadioFields($("#obligatorio"),$("#opcional"),$("#enganche-fijo"))
+        showRadioFields($("#obligatorio"),$("#no-aplica"),$("#fijo-rango-radios"))
 
-        showRadioFields($("#opcional"),$("#no-aplica"),$("#enganche"))
-        showRadioFields($("#opcional"),$("#obligatorio"),$("#enganche"))
+        showRadioFields($("#opcional"),$("#no-aplica"),$("#fijo-rango-radios"))
+
+        showRadioFields($("#fijo"),$("#no-aplica"),$("#enganche-fijo"))
+        showRadioFields($("#fijo"),$("#rango"),$("#enganche-fijo"))
+
+        showRadioFields($("#rango"),$("#no-aplica"),$("#enganche"))
+        showRadioFields($("#rango"),$("#fijo"),$("#enganche"))
 
 
         showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"))
