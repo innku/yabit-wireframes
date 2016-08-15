@@ -31,9 +31,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="ventas_de_planes.html">Ventas de planes</a></li>
+            <li class="active"><a href="ventas_de_planes.html">Ventas de planes</a></li>
             <li><a href="index.html">Planes</a></li>
-            <li class="active"><a href="users.html">Usuarios</a></li>
+            <li><a href="users.html">Usuarios</a></li>
             <li><a href="#">Salir</a></li>
           </ul>
         </div>
@@ -44,10 +44,8 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-md-2">
-          <a href="new_user.html" type="button" class="btn btn-primary btn-large">
-            <span class="glyphicon glyphicon-plus"></span> Nuevo Usuario
-          </a>
+        <div class="col-md-4">
+          <h2>Historial de ventas</h2>
         </div>
         <br><br><br>
 
@@ -55,38 +53,37 @@
           <table class="table table-hover table-condensed">
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
+                <th>Fecha</th>
+                <th>Vendedor</th>
+                <th>Comprador</th>
+                <th>Plan</th>
+                <th>Configuración</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="lead">Santiago Suárez</td>
-                <td class="lead">santiago@innku.com</td>
+                <td class="lead">10/06/2016</td>
+                <td class="lead">Rodolfo Cuevas Zavala</td>
+                <td class="lead">Daniel del Castillo Hernandez</td>
+                <td class="lead">Plan para cirugía de ojos</td>
                 <td>
                   <div class="actions pull-right">
-                    <button type="button" class="btn btn-default btn-xs">
-                      <span class="glyphicon glyphicon-pencil"></span> Editar
-                    </button>
-                    <button type="button" class="btn btn-danger btn-xs">
-                      <span class="glyphicon glyphicon-trash"></span>  Eliminar
-                    </button>
-                  </div>
+                    <a href="new_plan.html" type="button" class="btn btn-default btn-xs">
+                      <span class="glyphicon glyphicon-cog"></span> Configuración
+                    </a>
                 </td>
               </tr>
               <tr>
-                <td class="lead">Alberto Padilla</td>
-                <td class="lead">alberto@innku.com</td>
+                <td class="lead">18/06/2016</td>
+                <td class="lead">Maria Gómez Navarro</td>
+                <td class="lead">Federico Nuñez Pérez</td>
+                <td class="lead">Plan para compra de muebles</td>
                 <td>
                   <div class="actions pull-right">
-                    <button type="button" class="btn btn-default btn-xs">
-                      <span class="glyphicon glyphicon-pencil"></span> Editar
-                    </button>
-                    <button type="button" class="btn btn-danger btn-xs">
-                      <span class="glyphicon glyphicon-trash"></span>  Eliminar
-                    </button>
-                  </div>
+                    <a href="new_plan2.html" type="button" class="btn btn-default btn-xs">
+                      <span class="glyphicon glyphicon-cog"></span> Configuración
+                    </a>
                 </td>
               </tr>
             </tbody>
