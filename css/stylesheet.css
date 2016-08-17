@@ -73,6 +73,10 @@ body{
   margin-left: 30px;
 }
 
+.establecer-class label {
+  padding-left: 60px;
+}
+
 
 /* VENDEDOR */
 
