@@ -120,6 +120,31 @@
                   <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Suscripción: Pago constante por el monto total
                 </label>
               </div>
+              <div class="checkbox checkboxes hidden establecer-class">
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="establecer-plazo-max"> Establecer plazo máximo
+                </label>
+              </div>
+              <div class="plazo-max-frecuencia hidden">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="frecuency">
+                        Cada   
+                        <div class="input-group frecuency-input">
+                          <span class="input-group-addon">#</span>
+                          <input type="number" class="form-control frecuency-number">
+                        </div>
+                        <select class="frecuency-select form-control">
+                          <option>días</option>
+                          <option>semanas</option>
+                          <option>meses</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -401,6 +426,10 @@
         showRadioFields($("#monto-por-limites"),$("#por-monto-del-plan"),$("#monto-con-rangos"));
         hideField($("#cualquier-monto"), $("#monto-fijo"));
         hideField($("#cualquier-monto"), $("#monto-con-rangos"));
+
+        showRadioFields($('#terminacion-obligatorio'),$('#terminacion-opcional'),$('.establecer-class'));
+        showFields($('#establecer-plazo-max'), $('.plazo-max-frecuencia'))
+        hideField($('#terminacion-opcional'),$('.plazo-max-frecuencia'))
 
         showRadioFields($('#opciones-definidas'),$(".frecuencies"),$(".checkboxes"))
 
