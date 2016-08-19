@@ -46,8 +46,8 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
-          <div class="col-md-5">
+        <div class="col-md-8">
+          <div class="col-md-12">
             <h1>Colocación de plan</h1>
           </div>
         <br>
@@ -109,7 +109,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-1 porcentaje-dinero hidden">
+                    <div class="col-md-2 porcentaje-dinero hidden">
                       <div class="dinero-example">
                         = $6,000
                       </div>
@@ -185,12 +185,12 @@
 
             <div class="row save-buttons">
               <div class="col-md-3 col-md-offset-3">
-                <button type='button' data-toggle='modal' id="generar-tabla" data-target='#tabla-de-pagos' class="btn btn-primary btn-large btn-block">
+                <button type='button' data-toggle='modal' id="generar-tabla" data-target='#tabla-de-pagos' class="btn btn-default btn-large btn-block">
                 Generar tabla de pagos
                 </button>
               </div>
               <div class="col-md-3">
-                <a href="index_vendedor.html" type="button" class="btn btn-default btn-large btn-block">
+                <a href="#" type="button" class="btn btn-primary btn-large btn-block">
                 Colocar plan
                 </a>
               </div>
@@ -200,24 +200,24 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="select-clientes">
+      <div class="col-md-4">
+        <div class="well select-clientes">
           <h3>Nombre del cliente</h3>
           <select class="form-control cliente-chosen">
             <option>Santiago Suárez</option>
             <option>Alberto Padilla</option>
             <option>Cristina Palacios</option>
           </select>
-        </div>
-        <div class="row registro-button">
-          <div class="col-md-12">
-            <a href="#" type="button" id="registrar-cliente" class="btn btn-default btn-large btn-block">
-            Registro de cliente
-            </a>
+          <div class="row registro-button">
+            <div class="col-md-12">
+              <a href="#" type="button" id="registrar-cliente" class="btn btn-default btn-large btn-block">
+              Nuevo cliente
+              </a>
+            </div>
           </div>
         </div>
         <div class="well hidden cliente-well">
-          <h4 class="lead">Registro de cliente</h4>
+          <h4 class="lead" style="display: inline-block;">Registro de cliente</h4><small>    o <a href="#" id="nuevo-cliente">Seleccionar cliente</a></small>
           <form>
             <div class="form-group">
               <div class="row">
@@ -250,18 +250,11 @@
             </div>
 
           </form>
-          <div class="row">
-            <div class="col-md-12">
-              <a href="#" type="button" id="nuevo-cliente" class="btn btn-default btn-large btn-block">
-              Registrar cliente
-              </a>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="modal fade" id="tabla-de-pagos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -271,37 +264,37 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Plan</h3>
-                  <p class="lead">Plan flexiplus</p>
+                  <h4>Plan</h4>
+                  <p>Plan flexiplus</p>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-4">
-                  <h3>Monto del plan</h3>
-                  <p class="lead">$20,000.00</p>
+                  <h4>Monto del plan</h4>
+                  <p>$20,000.00</p>
                 </div>
                 <div class="col-md-4">
-                  <h3>Pago inicial</h3>
-                  <p class="lead">$6,000.00</p>
+                  <h4>Pago inicial</h4>
+                  <p>$6,000.00</p>
                 </div>
                 <div class="col-md-4">
-                  <h3>Pago por plazo</h3>
-                  <p class="lead">$200.00</p>
+                  <h4>Pago por plazo</h4>
+                  <p>$200.00</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
-                  <h3>Número de pagos</h3>
-                  <p class="lead">70 pagos</p>
+                  <h4>Número de pagos</h4>
+                  <p>70 pagos</p>
                 </div>
                 <div class="col-md-4">
-                  <h3>Fecha de inicio</h3>
-                  <p class="lead">11 de marzo 2017</p>
+                  <h4>Fecha de inicio</h4>
+                  <p>11 de marzo 2017</p>
                 </div>
                 <div class="col-md-4">
-                  <h3>Fecha de termino</h3>
-                  <p class="lead">11 de marzo 2018</p>
+                  <h4>Fecha de termino</h4>
+                  <p>11 de marzo 2018</p>
                 </div>
               </div>
 
