@@ -10,9 +10,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="css/chosen.css" rel="stylesheet">
 
     <script src="js/jquery.js"></script>
     <script src="js/moment.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-datetimepicker.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -43,156 +46,365 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <h1>Nuevo plan de pago</h1>
-        </div>
-      </div>
-      <br>
-
-      <div class="row">
-        <div class="col-md-12">
-
-           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Selecciona un plan</h4>
-            </div>
-            <div class="panel-body">
-              <select class="form-control">
-                <option>Plan flexiplus</option>
-                <option>Plan medio flexible</option>
-                <option>Plan super fijo</option>
-              </select>
-            </div>
+        <div class="col-md-9">
+          <div class="col-md-5">
+            <h1>Colocación de plan</h1>
           </div>
+        <br>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Monto del plan</h4>
+        <div class="row">
+          <div class="col-md-12">
+
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Selecciona un plan</h4>
+              </div>
+              <div class="panel-body">
+                <select class="form-control">
+                  <option>Plan flexiplus</option>
+                  <option>Plan medio flexible</option>
+                  <option>Plan super fijo</option>
+                </select>
+              </div>
             </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="number" min="0" max="999999" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Monto del plan</h4>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" min="0" max="999999" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Pago inicial</h4>
-            </div>
-            <div class="panel-body">
-              <div class="radios-pago-inicial">
-                <label class="radio-inline">
-                  <input type="radio" name="pago-inicial" id="con-pago" value="option3" checked> Con pago inicial
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="pago-inicial" id="sin-pago" value="option4"> Sin pago inicial
-                </label>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Pago inicial</h4>
               </div>
-              <br>
-              <div class="row pago-inicial-opciones">
-                <div id="por-porcentaje">
-                  <div class="col-md-2">
-                    <label for="porcentaje-pago">Por porcentaje</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon">%</span>
-                        <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
+              <div class="panel-body">
+                <div class="radios-pago-inicial">
+                  <label class="radio-inline">
+                    <input type="radio" name="pago-inicial" id="con-pago" value="option3" checked> Con pago inicial
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="pago-inicial" id="sin-pago" value="option4"> Sin pago inicial
+                  </label>
+                </div>
+                <br>
+                <div class="row pago-inicial-opciones">
+                  <div id="por-porcentaje">
+                    <div class="col-md-2">
+                      <label for="porcentaje-pago">Por porcentaje</label>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon">%</span>
+                          <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1 porcentaje-dinero hidden">
+                      <div class="dinero-example">
+                        = $6,000
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-1 porcentaje-dinero hidden">
-                    <div class="dinero-example">
-                      = $6,000
+                  <div id="por-monto">
+                    <div class="col-md-4 col-md-offset-1">
+                      <label for="porcentaje-monto">Por monto</label>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div id="por-monto">
-                  <div class="col-md-4 col-md-offset-1">
-                    <label for="porcentaje-monto">Por monto</label>
+              </div>
+            </div>
+
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Frecuencia de pago</h4>
+              </div>
+              <div class="panel-body">
+                <select class="form-control">
+                  <option>Cada 5 días</option>
+                  <option>Cada 2 semanas</option>
+                  <option>Cada 1 mes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Pago por plazo</h4>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                        <input type="number" min="0" id="pago-por-plazo" class="form-control" placeholder="5,000">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="num-plazos-completar hidden">
+                      70 pagos para completar el monto del plan
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">Fecha de inicio</h4>
+              </div>
+              <div class="panel-body">
+                <div style="overflow:hidden;">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div id="datetimepicker12"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Frecuencia de pago</h4>
+            <div class="row save-buttons">
+              <div class="col-md-3 col-md-offset-3">
+                <button type='button' data-toggle='modal' id="generar-tabla" data-target='#tabla-de-pagos' class="btn btn-primary btn-large btn-block">
+                Generar tabla de pagos
+                </button>
+              </div>
+              <div class="col-md-3">
+                <a href="index_vendedor.html" type="button" class="btn btn-default btn-large btn-block">
+                Colocar plan
+                </a>
+              </div>
             </div>
-            <div class="panel-body">
-              <select class="form-control">
-                <option>Cada 5 días</option>
-                <option>Cada 2 semanas</option>
-                <option>Cada 1 mes</option>
-              </select>
-            </div>
-          </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Pago por plazo</h4>
-            </div>
-            <div class="panel-body">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="select-clientes">
+          <h3>Nombre del cliente</h3>
+          <select class="form-control cliente-chosen">
+            <option>Santiago Suárez</option>
+            <option>Alberto Padilla</option>
+            <option>Cristina Palacios</option>
+          </select>
+        </div>
+        <div class="row registro-button">
+          <div class="col-md-12">
+            <a href="#" type="button" id="registrar-cliente" class="btn btn-default btn-large btn-block">
+            Registro de cliente
+            </a>
+          </div>
+        </div>
+        <div class="well hidden cliente-well">
+          <h4 class="lead">Registro de cliente</h4>
+          <form>
+            <div class="form-group">
               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" min="0" id="pago-por-plazo" class="form-control" placeholder="5,000">
-                    </div>
-                  </div>
+                <div class="col-md-12">
+                  <label for='name'>Nombre</label>
+                    <input class="form-control" id='name' type="text" placeholder="Nombre del cliente">
                 </div>
-                <div class="col-md-6">
-                  <div class="num-plazos-completar hidden">
-                    70 pagos para completar el monto del plan
+                <div class="col-md-12">
+                  <label for='apellidos'>Apellidos</label>
+                    <input class="form-control" id="apellidos" type="text" placeholder="Apellidos">
+                </div>
+                <div class="col-md-12">
+                  <label for='phone'>Teléfono</label>
+                    <input class="form-control" id="phone" type="number" placeholder="Teléfono">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label for='address'>Dirección</label>
+                    <input class="form-control" id="address" type="number" placeholder="Dirección">
+                </div>
+                <div class="col-md-12">
+                  <label for='mail'>Correo electrónico</label>
+                    <input class="form-control" id="mail" type="email" placeholder="Correo electrónico">
+                </div>
+              </div>
+            </div>
+
+          </form>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#" type="button" id="nuevo-cliente" class="btn btn-default btn-large btn-block">
+              Registrar cliente
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="tabla-de-pagos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Resumen plan de pago</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>Plan</h3>
+                  <p class="lead">Plan flexiplus</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <h3>Monto del plan</h3>
+                  <p class="lead">$20,000.00</p>
+                </div>
+                <div class="col-md-4">
+                  <h3>Pago inicial</h3>
+                  <p class="lead">$6,000.00</p>
+                </div>
+                <div class="col-md-4">
+                  <h3>Pago por plazo</h3>
+                  <p class="lead">$200.00</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <h3>Número de pagos</h3>
+                  <p class="lead">70 pagos</p>
+                </div>
+                <div class="col-md-4">
+                  <h3>Fecha de inicio</h3>
+                  <p class="lead">11 de marzo 2017</p>
+                </div>
+                <div class="col-md-4">
+                  <h3>Fecha de termino</h3>
+                  <p class="lead">11 de marzo 2018</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="lead">Tabla de resumen</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="tabla-resumen">
+                    <table class="table table-bordered table-hover table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Fecha</th>
+                          <th>Pago</th>
+                          <th>Saldo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="lead">11 marzo 2017</td>
+                          <td class="lead">$6,000</td>
+                          <td class="lead">$14,000</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">17 marzo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$13,800</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">24 marzo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$13,600</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">31 marzo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$13,400</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">7 abril 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$13,200</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">14 abril 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$13,000</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">21 abril 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$12,800</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">28 abril 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$12,600</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">5 mayo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$12,400</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">12 mayo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$12,200</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">19 mayo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$12,000</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">26 mayo 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$11,800</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">2 junio 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$11,600</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">9 junio 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$11,400</td>
+                        </tr>
+                        <tr>
+                          <td class="lead">16 junio 2017</td>
+                          <td class="lead">$200</td>
+                          <td class="lead">$11,200</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Fecha de inicio</h4>
-            </div>
-            <div class="panel-body">
-              <div style="overflow:hidden;">
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <div id="datetimepicker12"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row save-buttons">
-            <div class="col-md-3 col-md-offset-3">
-              <a href="resumen_venta.html" type="button" class="btn btn-primary btn-large btn-block">
-              Ver resumen
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="index_vendedor.html" type="button" class="btn btn-default btn-large btn-block">
-              Cancelar
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -208,29 +420,46 @@
           });
         });
 
+        $(".cliente-chosen").chosen()
+
         function showRadioFields(show, hide, fields) {
           $(show).change(function() {
             if (this.checked) {
               $(fields).removeClass('hidden');
             }
-          })
+          });
           $(hide).change(function() {
             if (this.checked) {
               $(fields).addClass('hidden');
             }
-          })
+          });
         }
 
         function showField(input, field) {
           $(input).on('input',function() {
             $(field).removeClass('hidden');
-          })
+          });
+        }
+
+        function showHideWell(button, hide, well) {
+          $(button).on('click', function() {
+            $(well).removeClass('hidden');
+            $(button).addClass('hidden');
+            $('.select-clientes').addClass('hidden');
+          });
+          $(hide).on('click', function() {
+            $(well).addClass('hidden');
+            $(button).removeClass('hidden');
+            $('.select-clientes').removeClass('hidden');
+          });
         }
 
         showRadioFields($('#con-pago'),$('#sin-pago'),$('.pago-inicial-opciones'));
         showField($('#porcentaje-pago'),$('.porcentaje-dinero'));
 
         showField($('#pago-por-plazo'),$('.num-plazos-completar'));
+
+        showHideWell($('#registrar-cliente'),$('#nuevo-cliente'),$('.cliente-well'));
 
       });
     </script>
