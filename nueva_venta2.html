@@ -62,7 +62,7 @@
               <div class="panel-body">
                 <select class="form-control">
                   <option>Plan flexiplus</option>
-                  <option>Plan medio flexible</option>
+                  <option selected>Plan medio flexible</option>
                   <option>Plan super fijo</option>
                 </select>
               </div>
@@ -70,14 +70,14 @@
 
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h4 class="panel-title">Monto del plan</h4>
+                <h4 class="panel-title" style="display: inline-block;">Monto del plan</h4><i class="muted small">   Mínimo: $5,000   Máximo: $100,000</i>
               </div>
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <div class="input-group">
+                    <div class="input-group has-error">
                       <span class="input-group-addon">$</span>
-                      <input type="number" min="0" max="999999" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+                      <input type="number" min="0" max="999999" class="form-control" value="3000" id="max" aria-label="Máximo" placeholder="20,000">
                     </div>
                   </div>
                 </div>
@@ -100,13 +100,14 @@
                 <br>
                 <div class="row pago-inicial-opciones">
                   <div id="por-porcentaje">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                       <label for="porcentaje-pago">Por porcentaje</label>
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon">%</span>
-                          <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
+                          <input type="number" value="13" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
                         </div>
+                        <i style="display: inline-block;" class="muted small">Mínimo: 10%   Máximo: 16%</i>
                       </div>
                     </div>
                     <div class="col-md-2 porcentaje-dinero hidden">
@@ -121,7 +122,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                          <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000" disabled>
                         </div>
                       </div>
                     </div>
@@ -135,11 +136,28 @@
                 <h4 class="panel-title">Frecuencia de pago</h4>
               </div>
               <div class="panel-body">
-                <select class="form-control">
-                  <option>Cada 5 días</option>
-                  <option>Cada 2 semanas</option>
-                  <option>Cada 1 mes</option>
-                </select>
+                <div class="my-defined-options-sale">
+                  <div class="frecuencies">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <div class="frecuency">
+                            Cada   
+                            <div class="input-group frecuency-input">
+                              <span class="input-group-addon">#</span>
+                              <input type="number" class="form-control frecuency-number">
+                            </div>
+                            <select class="frecuency-select form-control">
+                              <option>días</option>
+                              <option>semanas</option>
+                              <option>meses</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
