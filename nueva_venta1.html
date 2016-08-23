@@ -99,10 +99,12 @@
                 </div>
                 <br>
                 <div class="row pago-inicial-opciones">
-                  <div id="por-porcentaje">
-                    <div class="col-md-2">
-                      <label for="porcentaje-pago">Por porcentaje</label>
-                      <div class="form-group">
+                  <div>
+                    <div class="col-md-3">
+                      <label>
+                        <input type="checkbox" id="por-porcentaje"> Por porcentaje
+                      </label>
+                      <div class="form-group porcentaje-input hidden">
                         <div class="input-group">
                           <span class="input-group-addon">%</span>
                           <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
@@ -115,10 +117,12 @@
                       </div>
                     </div>
                   </div>
-                  <div id="por-monto">
+                  <div>
                     <div class="col-md-4 col-md-offset-1">
-                      <label for="porcentaje-monto">Por monto</label>
-                      <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="por-monto"> Por monto
+                      </label>
+                      <div class="form-group monto-input hidden">
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
                           <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
@@ -415,6 +419,18 @@
 
         $(".cliente-chosen").chosen()
 
+        function showCheckboxFields(checkbox, fields, otherCheckbox) {
+          $(checkbox).change(function() {
+            if (this.checked) {
+              $(fields).removeClass('hidden');
+              $(otherCheckbox).prop('disabled', true)
+            } else {
+              $(fields).addClass('hidden');
+              $(otherCheckbox).prop('disabled', false)
+            }
+          })
+        }
+
         function showRadioFields(show, hide, fields) {
           $(show).change(function() {
             if (this.checked) {
@@ -448,6 +464,8 @@
         }
 
         showRadioFields($('#con-pago'),$('#sin-pago'),$('.pago-inicial-opciones'));
+        showCheckboxFields($('#por-porcentaje'),$('.porcentaje-input'), $('#por-monto'));
+        showCheckboxFields($('#por-monto'),$('.monto-input'), $('#por-porcentaje'));
         showField($('#porcentaje-pago'),$('.porcentaje-dinero'));
 
         showField($('#pago-por-plazo'),$('.num-plazos-completar'));
