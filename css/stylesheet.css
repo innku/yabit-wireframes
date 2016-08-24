@@ -128,3 +128,7 @@ body{
   overflow: scroll;
   padding-bottom: 1em;
 }
+
+.resumen-lista > li{
+  margin-bottom: 0px;
+}
