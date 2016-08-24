@@ -13,8 +13,8 @@ body{
 }
 
 .save-buttons {
-  padding-top: 60px;
-  padding-bottom: 300px;
+  padding-top: 20px;
+  padding-bottom: 60px;
 }
 
 .checkboxes label {
@@ -80,12 +80,20 @@ body{
 
 /* VENDEDOR */
 
+#pago-inicial-titulo {
+  display: inline;
+}
+
+#pago-inicial-opcion {
+  display: inline;
+}
+
 .radios-pago-inicial label {
-  margin-right: 240px;
+  margin-right: 2rem;
 }
 
 .porcentaje-dinero {
-  margin-top: 30px;
+  margin-top: 0.5em;
 }
 
 .num-plazos-completar {
@@ -112,4 +120,11 @@ body{
 
 .radio-pagos {
   margin-bottom: 10px;
+}
+
+.right-column {
+  background-color: #eee;
+  max-height: 98vh;
+  overflow: scroll;
+  padding-bottom: 1em;
 }

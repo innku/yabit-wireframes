@@ -46,217 +46,271 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-          <div class="col-md-12">
+
+        <!-- Título y selección de plan -->
+        <div class="row center">
+          <div class="col-md-4 col-md-offset-2 text-right">
             <h1>Colocación de plan</h1>
           </div>
+          <div id="plan-name" class="col-md-4">
+            <select class="form-control input-lg">
+              <option>Plan flexiplus</option>
+              <option>Plan medio flexible</option>
+              <option>Plan super fijo</option>
+            </select>
+          </div>
+        </div>
         <br>
+        <!-- /Título y selección de plan -->
 
-        <div class="row">
-          <div class="col-md-12">
+        <!-- Left colum main content -->
+        <div class="col-md-7">
 
-             <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Selecciona un plan</h4>
-              </div>
-              <div class="panel-body">
-                <select class="form-control">
-                  <option>Plan flexiplus</option>
-                  <option>Plan medio flexible</option>
-                  <option>Plan super fijo</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Monto del plan</h4>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="input-group">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" min="0" max="999999" class="form-control" id="max" aria-label="Máximo" placeholder="20,000">
+          <!-- Precio -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Total a pagar -<small> Precio</small></h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" min="0" max="999999" class="form-control" id="max" aria-label="Máximo" placeholder="Elige la cantidad">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <!-- /Precio -->
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Pago inicial</h4>
-              </div>
-              <div class="panel-body">
-                <div class="radios-pago-inicial">
-                  <label class="radio-inline">
-                    <input type="radio" name="pago-inicial" id="con-pago" value="option3" checked> Con pago inicial
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="pago-inicial" id="sin-pago" value="option4"> Sin pago inicial
-                  </label>
+          <!-- Pago inicial -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 id="pago-inicial-titulo" class="panel-title">Pago inicial</h4>
+                  <div id="pago-inicial-opcion" class="radios-pago-inicial pull-right">
+                    <label class="radio-inline">
+                      <input type="radio" name="pago-inicial" id="con-pago" value="option3" checked> Con pago inicial
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="pago-inicial" id="sin-pago" value="option4"> Sin pago inicial
+                    </label>
+                  </div>
                 </div>
-                <br>
-                <div class="row pago-inicial-opciones">
-                  <div>
-                    <div class="col-md-3">
+                <div class="panel-body">
+                  <div class="row pago-inicial-opciones">
+                    <div class="col-md-12 radios-pago-inicial">
                       <label class="radio-inline radio-pagos">
-                        <input type="radio" name="pagos" id="por-porcentaje"> Por porcentaje
+                        <input type="radio" name="pagos" id="por-porcentaje">Por porcentaje
                       </label>
-                      <div class="form-group porcentaje-input hidden">
-                        <div class="input-group">
-                          <span class="input-group-addon">%</span>
-                          <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
-                        </div>
+                      <label class="radio-inline radio-pagos">
+                        <input type="radio" name="pagos" id="por-monto"> Por monto
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 form-group porcentaje-input hidden">
+                      <div class="input-group">
+                        <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
+                        <span class="input-group-addon">%</span>
                       </div>
                     </div>
-                    <div class="col-md-2 porcentaje-dinero hidden">
+                    <div class="col-md-3 porcentaje-dinero hidden">
                       <div class="dinero-example">
                         = $6,000
                       </div>
                     </div>
-                  </div>
-                  <div>
-                    <div class="col-md-4 col-md-offset-1">
-                      <label class="radio-inline radio-pagos">
-                        <input type="radio" name="pagos" id="por-monto"> Por monto
-                      </label>
+                    <div class="col-md-4">
                       <div class="form-group monto-input hidden">
                         <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Pago inicial -->
+
+          <div class="row">
+          <!-- Frecuencia de pago -->
+            <div class="col-md-6">
+               <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Frecuencia de pago</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-3 text-right">
+                      <p>Pagos<br>cada</p>
+                    </div>
+                    <div class="col-md-7">
+                      <select class="form-control">
+                        <option>5 días</option>
+                        <option>2 semanas</option>
+                        <option>1 mes</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- /Frecuencia de pago -->
+
+          <!-- Monto de cada pago -->
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Monto de cada pago</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-3 text-right">
+                      <p>Pagos<br>por</p>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                          <input type="number" min="0" id="pago-por-plazo" class="form-control" placeholder="Elige la cantidad">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-12">
+                      <div class="num-plazos-completar hidden">
+                        70 pagos para completar el monto del plan
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- /Monto de cada pago -->
+          </div>
+
+          <!-- Fecha de inicio -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Fecha de inicio</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                          </span>
+                          <input type="date" class="form-control">
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-             <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Frecuencia de pago</h4>
-              </div>
-              <div class="panel-body">
-                <select class="form-control">
-                  <option>Cada 5 días</option>
-                  <option>Cada 2 semanas</option>
-                  <option>Cada 1 mes</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Pago por plazo</h4>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-6">
+                  <!-- <div style="overflow:hidden;">
                     <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        <input type="number" min="0" id="pago-por-plazo" class="form-control" placeholder="5,000">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div id="datetimepicker12"></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="num-plazos-completar hidden">
-                      70 pagos para completar el monto del plan
-                    </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
+          </div>
+          <!-- /Fecha de inicio -->
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">Fecha de inicio</h4>
-              </div>
-              <div class="panel-body">
-                <div style="overflow:hidden;">
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <div id="datetimepicker12"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        </div>
+        <!-- /Left colum main content -->
 
-            <div class="row save-buttons">
-              <div class="col-md-3 col-md-offset-3">
-                <button type='button' data-toggle='modal' id="generar-tabla" data-target='#tabla-de-pagos' class="btn btn-default btn-large btn-block">
-                Generar tabla de pagos
-                </button>
-              </div>
-              <div class="col-md-3">
-                <a href="#" type="button" class="btn btn-primary btn-large btn-block">
-                Colocar plan
+        <!-- Right colum client content -->
+        <div class="col-md-5 right-column">
+          <h3>Resumen del plan</h3>
+          <p class="lead">A pagar PRECIO, con un pago inicial de $PAGOINICIAL, N pagos de $MONTO cada FRECUENCIA, y un pago final de $FINAL.</p>
+          <div class="well select-clientes">
+            <h4>Nombre del cliente</h4>
+            <select class="form-control cliente-chosen">
+              <option>Santiago Suárez</option>
+              <option>Alberto Padilla</option>
+              <option>Cristina Palacios</option>
+            </select>
+            <div class="row registro-button">
+              <div class="col-md-12">
+                <a href="#" type="button" id="registrar-cliente" class="btn btn-default btn-large btn-block">
+                Nuevo cliente
                 </a>
               </div>
             </div>
-
           </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="well select-clientes">
-          <h3>Nombre del cliente</h3>
-          <select class="form-control cliente-chosen">
-            <option>Santiago Suárez</option>
-            <option>Alberto Padilla</option>
-            <option>Cristina Palacios</option>
-          </select>
-          <div class="row registro-button">
-            <div class="col-md-12">
-              <a href="#" type="button" id="registrar-cliente" class="btn btn-default btn-large btn-block">
-              Nuevo cliente
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="well hidden cliente-well">
-          <h4 class="lead" style="display: inline-block;">Registro de cliente</h4><small>    o <a href="#" id="nuevo-cliente">Seleccionar cliente</a></small>
-          <form>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-12">
-                  <label for='name'>Nombre</label>
-                    <input class="form-control" id='name' type="text" placeholder="Nombre del cliente">
-                </div>
-                <div class="col-md-12">
-                  <label for='apellidos'>Apellidos</label>
-                    <input class="form-control" id="apellidos" type="text" placeholder="Apellidos">
-                </div>
-                <div class="col-md-12">
-                  <label for='phone'>Teléfono</label>
-                    <input class="form-control" id="phone" type="number" placeholder="Teléfono">
+          <div class="well hidden cliente-well">
+            <h4 class="" style="display: inline-block;">Registro de cliente</h4><small>    o <a href="#" id="nuevo-cliente">Seleccionar cliente</a></small>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for='name'>Nombre</label>
+                      <input class="form-control" id='name' type="text" placeholder="Nombre del cliente">
+                  </div>
+                  <div class="col-md-12">
+                    <label for='apellidos'>Apellidos</label>
+                      <input class="form-control" id="apellidos" type="text" placeholder="Apellidos">
+                  </div>
+                  <div class="col-md-12">
+                    <label for='phone'>Teléfono</label>
+                      <input class="form-control" id="phone" type="number" placeholder="Teléfono">
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-12">
-                  <label for='address'>Dirección</label>
-                    <input class="form-control" id="address" type="number" placeholder="Dirección">
-                </div>
-                <div class="col-md-12">
-                  <label for='mail'>Correo electrónico</label>
-                    <input class="form-control" id="mail" type="email" placeholder="Correo electrónico">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for='address'>Dirección</label>
+                      <input class="form-control" id="address" type="number" placeholder="Dirección">
+                  </div>
+                  <div class="col-md-12">
+                    <label for='mail'>Correo electrónico</label>
+                      <input class="form-control" id="mail" type="email" placeholder="Correo electrónico">
+                  </div>
                 </div>
               </div>
-            </div>
 
-          </form>
+            </form>
+          </div>
         </div>
+        <!-- /Right colum client content -->
       </div>
 
+      <!-- Botones -->
+      <div class="row save-buttons">
+        <div class="col-md-3 col-md-offset-3">
+          <button type='button' data-toggle='modal' id="generar-tabla" data-target='#tabla-de-pagos' class="btn btn-default btn-lg btn-block">
+          Generar tabla de pagos
+          </button>
+        </div>
+        <div class="col-md-3">
+          <a href="#" type="button" class="btn btn-primary btn-lg btn-block">
+          Colocar plan
+          </a>
+        </div>
+      </div>
+      <!-- /Botones -->
+
+
+      <!-- Modal -->
       <div class="modal fade" id="tabla-de-pagos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -404,8 +458,7 @@
           </div>
         </div>
       </div>
-
-    </div>
+      <!-- /Modal -->
 
     <script type="text/javascript">
       $(document).ready(function() {
