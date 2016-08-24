@@ -57,9 +57,53 @@
       <div class="row">
         <div class="col-md-12">
 
-           <div class="panel panel-default">
+          <!-- Tipo de plan -->
+          <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title">Monto</h4>
+              <h4 class="panel-title" style="display: inline-block">Tipo de plan</h4>
+            </div>
+            <div class="panel-body">
+              <div class="options radio-divs">
+                <label class="radio-inline lead">
+                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Pago a plazos
+                </label>
+                <label class="radio-inline lead">
+                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Suscripción
+                </label>
+              </div>
+              <div class="checkbox hidden establecer-class">
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="establecer-plazo-max"> Establecer plazo máximo
+                </label>
+              </div>
+              <div class="plazo-max-frecuencia hidden">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="frecuency">
+                        El plán se debe de pagar en máximo
+                        <div class="input-group frecuency-input">
+                          <span class="input-group-addon">#</span>
+                          <input type="number" class="form-control frecuency-number">
+                        </div>
+                        <select class="frecuency-select form-control">
+                          <option>días</option>
+                          <option>semanas</option>
+                          <option>meses</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Tipo de plan -->
+
+          <!-- Precio -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Precio</h4>
             </div>
             <div class="panel-body">
               <div class="options radio-divs">
@@ -67,7 +111,7 @@
                   <input type="radio" name="limites-para-monto" id="por-monto-del-plan" value="option1"> Monto fijo
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="limites-para-monto" id="monto-por-limites" value="option2"> Monto con límites
+                  <input type="radio" name="limites-para-monto" id="monto-por-limites" value="option2"> Monto dentro de un rango
                 </label>
                 <label class="radio-inline">
                   <input type="radio" name="limites-para-monto" id="cualquier-monto" value="option1"> Cualquier monto
@@ -106,48 +150,88 @@
               </div>
             </div>
           </div>
+          <!-- /Precio -->
 
+          <!-- Frecuencia de pago -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title" style="display: inline-block">Suscripción o Plazo</h4>
+              <h4 class="panel-title">Frecuencia de pago</h4>
             </div>
             <div class="panel-body">
-              <div class="options radio-divs">
+              <div class="options">
                 <label class="radio-inline">
-                  <input type="radio" name="terminacion" id="terminacion-obligatorio" value="option3"> Plazo: Que se cumple al cubrir el monto
+                  <input type="radio" name="frecuencia-radio" id="opciones-definidas" checked> Opciones definidas
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="terminacion" id="terminacion-opcional" value="option4"> Suscripción: Pago constante por el monto total
+                  <input type="radio" name="frecuencia-radio" id="100-flexible"> 100% Flexible <small>a definir por el vendedor</small>
                 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="frecuencia-radio" id="mis-opciones"> Mis propias opciones
+                </label>
+                <br><br>
               </div>
-              <div class="checkbox hidden establecer-class">
+              <div class="checkbox checkboxes">
+                Permitir pagos<br>
                 <label class="checkbox-inline">
-                  <input type="checkbox" id="establecer-plazo-max"> Establecer plazo máximo
+                  <input type="checkbox"> Diarios
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Semanales
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Cada 2 semanas
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Mensuales
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Bimestrales
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Trimestrales
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Semestrales
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Anuales
                 </label>
               </div>
-              <div class="plazo-max-frecuencia hidden">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <div class="frecuency">
-                        Plazo máximo   
-                        <div class="input-group frecuency-input">
-                          <span class="input-group-addon">#</span>
-                          <input type="number" class="form-control frecuency-number">
+              <div class="hidden my-defined-options">
+                <div class="frecuencies">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <div class="frecuency">
+                          Pagos cada
+                          <div class="input-group frecuency-input">
+                            <span class="input-group-addon">#</span>
+                            <input type="number" class="form-control frecuency-number">
+                          </div>
+                          <select class="frecuency-select form-control">
+                            <option>días</option>
+                            <option>semanas</option>
+                            <option>meses</option>
+                          </select>
                         </div>
-                        <select class="frecuency-select form-control">
-                          <option>días</option>
-                          <option>semanas</option>
-                          <option>meses</option>
-                        </select>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1">
+                    <button type="button" id="add-new-frecuency" class="btn btn-link">Añadir opción</button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type='button' class='hidden erase-new-frecuency btn btn-link'>Eliminar</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- /Frecuencia de pago -->
 
+          <!-- Pago inicial -->
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">Pago inicial</h4>
@@ -166,10 +250,10 @@
               </div>
               <div class="hidden" id="fijo-rango-radios">
                 <label class="radio-inline">
-                  <input type="radio" name="fijo-rango" id="fijo" value="option3"> Fijo
+                  <input type="radio" name="fijo-rango" id="fijo" value="option3"> Monto fijo
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="fijo-rango" id="rango" value="option4"> Rango
+                  <input type="radio" name="fijo-rango" id="rango" value="option4"> Monto dentro de un rango
                 </label>
                 <br><br>
               </div>
@@ -185,8 +269,8 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <div class="input-group">
-                        <span class="input-group-addon">%</span>
                         <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="12">
+                        <span class="input-group-addon">%</span>
                       </div>
                     </div>
                   </div>
@@ -214,7 +298,7 @@
               <div class="hidden" id="enganche">
                 <div class="row">
                   <div class="col-md-5">
-                    <i class="text-muted">Definir si el pago inicial debe tener límites</i>
+                    <i class="text-muted">Definir el rango dentro del cuál el vendedor puede elegir el monto</i>
                     <br><br>
                     <label>
                       <input id="enganche-porcentaje" type="checkbox"> Por porcentaje del total
@@ -226,7 +310,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">Min</span>
-                        <input type="number" min="0" max="100" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                        <input type="number" min="0" max="100" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin mínimo">
                         <span class="input-group-addon">%</span>
                       </div>
                     </div>
@@ -235,7 +319,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">Max</span>
-                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                        <input type="number" min="0" max="100" class="form-control" id="max" aria-label="Máximo" placeholder="Sin máximo">
                         <span class="input-group-addon">%</span>
                       </div>
                     </div>
@@ -254,7 +338,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">Min $</span>
-                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin min.">
+                        <input type="number" min="0" class="form-control" id="min" aria-label="Mínimo" placeholder="Sin mínimo">
                       </div>
                     </div>
                   </div>
@@ -262,7 +346,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">Max $</span>
-                        <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin max.">
+                        <input type="number" min="0" class="form-control" id="max" aria-label="Máximo" placeholder="Sin máximo">
                       </div>
                     </div>
                   </div>
@@ -270,82 +354,7 @@
               </div>
             </div>
           </div>
-
-           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">Frecuencia de pago</h4>
-            </div>
-            <div class="panel-body">
-              <div class="options">
-                <label class="radio-inline">
-                  <input type="radio" name="frecuencia-radio" id="opciones-definidas" checked> Opciones definidas
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="frecuencia-radio" id="100-flexible"> 100% Flexible
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="frecuencia-radio" id="mis-opciones"> Mis propias opciones
-                </label>
-                <br><br>
-              </div>
-              <div class="checkbox checkboxes">
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Diario
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Semanal
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Cada 2 semanas
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Mensual
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Bimestral
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Trimestral
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Semestral
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> Anual
-                </label>
-              </div>
-              <div class="hidden my-defined-options">
-                <div class="frecuencies">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <div class="frecuency">
-                          Cada   
-                          <div class="input-group frecuency-input">
-                            <span class="input-group-addon">#</span>
-                            <input type="number" class="form-control frecuency-number">
-                          </div>
-                          <select class="frecuency-select form-control">
-                            <option>días</option>
-                            <option>semanas</option>
-                            <option>meses</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-1">
-                    <button type="button" id="add-new-frecuency" class="btn btn-link">Añadir opción</button>
-                  </div>
-                  <div class="col-md-1">
-                    <button type='button' class='hidden erase-new-frecuency btn btn-link'>Eliminar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- /Pago inicial -->
 
           <div class="row save-buttons">
             <div class="col-md-3 col-md-offset-3">
@@ -398,7 +407,7 @@
         }
 
         function addFrecuency() {
-          newFrecuency = "<div class='row'><div class='col-md-3'><div class='form-group'><div class='frecuency'>Cada   <div class='input-group frecuency-input'><span class='input-group-addon'>#</span><input type='number' class='form-control frecuency-number'></div><select class='frecuency-select form-control'><option>días</option><option>semanas</option><option>meses</option></select></div></div></div></div>"
+          newFrecuency = "<div class='row'><div class='col-md-3'><div class='form-group'><div class='frecuency'>Pagos cada   <div class='input-group frecuency-input'><span class='input-group-addon'>#</span><input type='number' class='form-control frecuency-number'></div><select class='frecuency-select form-control'><option>días</option><option>semanas</option><option>meses</option></select></div></div></div></div>"
           $(".frecuencies").append(newFrecuency);
         }
 
