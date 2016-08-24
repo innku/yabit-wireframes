@@ -255,6 +255,9 @@
                 <label class="radio-inline">
                   <input type="radio" name="fijo-rango" id="rango" value="option4"> Monto dentro de un rango
                 </label>
+                 <label class="radio-inline">
+                  <input type="radio" name="fijo-rango" id="cualquier-pago-inicial" value="option4"> Cualquier monto
+                </label>
                 <br><br>
               </div>
               <div class="hidden" id="enganche-fijo">
@@ -458,6 +461,8 @@
 
         showRadioFields($("#rango"),$("#no-aplica"),$("#enganche"));
         showRadioFields($("#rango"),$("#fijo"),$("#enganche"));
+        hideField($("#cualquier-pago-inicial"), $("#enganche"));
+        hideField($("#cualquier-pago-inicial"), $("#enganche-fijo"));
 
 
         showFields($("#enganche-porcentaje-fijo"),$("#por-porcentaje-campo-fijo"));
