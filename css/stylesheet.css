@@ -132,3 +132,7 @@ body{
 .resumen-lista > li{
   margin-bottom: 0px;
 }
+
+#pagar-mediante {
+  margin-bottom: 0px;
+}
