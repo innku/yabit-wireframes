@@ -104,34 +104,36 @@
                   </div>
                 </div>
                 <div class="panel-body">
-                  <div class="row pago-inicial-opciones">
-                    <div class="col-md-12 radios-pago-inicial">
-                      <label class="radio-inline radio-pagos">
-                        <input type="radio" name="pagos" id="por-porcentaje">Por porcentaje
-                      </label>
-                      <label class="radio-inline radio-pagos">
-                        <input type="radio" name="pagos" id="por-monto"> Por monto
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 form-group porcentaje-input hidden">
-                      <div class="input-group">
-                        <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
-                        <span class="input-group-addon">%</span>
+                  <div class="pago-inicial-container">
+                    <div class="row pago-inicial-opciones">
+                      <div class="col-md-12 radios-pago-inicial">
+                        <label class="radio-inline radio-pagos">
+                          <input type="radio" name="pagos" id="por-porcentaje">Por porcentaje
+                        </label>
+                        <label class="radio-inline radio-pagos">
+                          <input type="radio" name="pagos" id="por-monto"> Por monto
+                        </label>
                       </div>
                     </div>
-                    <div class="col-md-3 porcentaje-dinero hidden">
-                      <div class="dinero-example">
-                        = $6,000
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group monto-input hidden">
+                    <div class="row">
+                      <div class="col-md-3 form-group porcentaje-input hidden">
                         <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
-                          </div>
+                          <input type="number" min="0" max="100" id="porcentaje-pago" class="form-control" placeholder="10">
+                          <span class="input-group-addon">%</span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 porcentaje-dinero hidden">
+                        <div class="dinero-example">
+                          = $6,000
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group monto-input hidden">
+                          <div class="input-group">
+                              <span class="input-group-addon">$</span>
+                              <input type="number" min="0" id="porcentaje-monto" class="form-control" placeholder="5,000">
+                            </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -218,15 +220,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div style="overflow:hidden;">
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div id="datetimepicker12"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -463,13 +456,6 @@
     <script type="text/javascript">
       $(document).ready(function() {
 
-        $(function () {
-          $('#datetimepicker12').datetimepicker({
-            inline: true,
-            format: 'DD/MM/YYYY'
-          });
-        });
-
         $(".cliente-chosen").chosen()
 
         function showRadioFields(show, hide, fields) {
@@ -504,7 +490,7 @@
           });
         }
 
-        showRadioFields($('#con-pago'),$('#sin-pago'),$('.pago-inicial-opciones'));
+        showRadioFields($('#con-pago'),$('#sin-pago'),$('.pago-inicial-container'));
 
         showRadioFields($('#por-porcentaje'),$('#por-monto'),$('.porcentaje-input'));
         showRadioFields($('#por-monto'),$('#por-porcentaje'),$('.monto-input'));
